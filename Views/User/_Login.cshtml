@@ -1,0 +1,17 @@
+@model LogUser
+
+<form asp-action="LoginUser" asp-controller="User" method="POST" class="col-6">
+    <h2 class="IdxTitle">Login!</h2>
+    <div class="form-group IdxBox">
+        <label asp-for="LogEmail"></label>
+        <input asp-for="LogEmail" class="form-control">
+        <span class="text-danger" asp-validation-for="LogEmail"></span>
+    </div>
+
+      <div class="form-group IdxBox">
+        <label asp-for="LogPassword"></label>
+        <input asp-for="LogPassword" class="form-control">
+        <span class="text-danger" asp-validation-for="LogPassword"></span>
+    </div>
+    <button class="Idxbutton">Login</button>
+</form>
