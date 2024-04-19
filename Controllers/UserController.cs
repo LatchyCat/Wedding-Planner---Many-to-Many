@@ -21,12 +21,18 @@ public class UserController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
+        List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+        Errors.ForEach(Console.WriteLine);
+
         return View();
     }
 
     [HttpPost("users/create")]
     public IActionResult RegisterUser(User newUser)
     {
+        List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+        Errors.ForEach(Console.WriteLine);
+
         if (!ModelState.IsValid)
         {
             return View("Index");
@@ -36,12 +42,16 @@ public class UserController : Controller
         _context.Add(newUser);
         _context.SaveChanges();
         HttpContext.Session.SetInt32("UserId", newUser.UserId);
-        return RedirectToAction ("AllPosts" , "Post");
+        return RedirectToAction ("AllWeddings" , "Wedding");
     }
 
     [HttpPost("users/login")]
     public IActionResult LoginUser(LogUser logAttempt)
     {
+        List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+        Errors.ForEach(Console.WriteLine);
+
+
         if (!ModelState.IsValid)
         {
             return View("Index");
@@ -59,13 +69,18 @@ public class UserController : Controller
             ModelState.AddModelError("LogPassword", "Invalid Credentials (p)");
             return View("Index");
         }
+
         HttpContext.Session.SetInt32("UserId", dbUser.UserId);
-        return RedirectToAction("AllPosts", "Post");
+        ViewBag.LoggedUserName = dbUser.FirstName;
+        return RedirectToAction("AllWeddings", "Wedding");
     }
 
     [HttpPost("user/logout")]
     public RedirectToActionResult Logout()
     {
+        List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+        Errors.ForEach(Console.WriteLine);
+
         HttpContext.Session.Remove("UserId");
         return RedirectToAction("Index");
     }

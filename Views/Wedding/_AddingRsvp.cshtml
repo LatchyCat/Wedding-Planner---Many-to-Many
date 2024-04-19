@@ -1,0 +1,15 @@
+@model Rsvp
+
+    <div>
+        <form asp-action="AddingRsvp" asp-controller="Wedding" class="col-6">
+            <h2 class="IdxTitle">RSVP to this wedding!</h2>
+           <input type="hidden" asp-for="WeddingId" value='@ViewData["WeddingId"]' class="form-control">
+            <select asp-for="WeddingId" class="dropDown">
+                @foreach(Wedding w in ViewBag.NotRsvpYet)
+                {
+                    <option class="pickMe" value="@w.WeddingId">@w.WedderOne & @w.WedderTwo</option>
+                }
+            </select>
+            <button class="Idxbutton">Rsvp</button>
+        </form>
+    </div>

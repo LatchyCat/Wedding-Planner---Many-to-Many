@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Plan a Wedding!";
+}
+
+@model Wedding
+
+<div class="text-center">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+
+         <form asp-action="CreateWedding" asp-controller="Wedding">
+            <label asp-for="WedderOne"></label>
+            <span asp-validation-for="WedderOne"></span>
+            <input asp-for="WedderOne" type="text" name="WedderOne" placeholder="Enter Wedder One" class="form-control">
+
+            <label asp-for="WedderTwo"></label>
+            <span asp-validation-for="WedderTwo"></span>
+            <input asp-for="WedderTwo" type="text" name="WedderTwo" placeholder="Enter Wedder Two" class="form-control">
+
+            <label asp-for="Date"></label>
+            <span  asp-validation-for="Date"></span>
+            <input asp-for="Date" type="date" name="Date" class="form-control">
+
+            <label asp-for="Address"></label>
+            <span asp-validation-for="Address"></span>
+            <input asp-for="Address" type="text" name="Address" placeholder="Enter Address Here" class="form-control">
+
+            <button type="submit" value="Submit" class="Idxbutton">Union of the Realm Contract!</button>
+        </form>
+    </div>
+</div>

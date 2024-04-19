@@ -1,0 +1,45 @@
+
+@model List<Wedding>
+
+@if(Model.Count == 0)
+{
+    <div class="container text-center mt-5">
+        <h1 class="landing-title">No Marriages planned in the realm yet!</h1>
+    </div>
+}
+
+
+<div>
+    <h1 class="text-center IdxTitle">All Weddings</h1>
+
+    <div class="OriList">
+        <table class="OriListTable">
+            <thead class="OriTHead">
+                <tr class="OriTRow">
+                    <th class="OriTH">Wedding of</th>
+                    <th class="OriTH">Wedding Date</th>
+                    <th class="OriTH">Wedding Address</th>
+                    <th class="OriTH">RSVP Count</th>
+                    <th class="OriTH">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Wedding w in Model)
+                {
+                    <tr class="OriTRow">
+                        <td class="OriTD"><a asp-action="ViewWedding" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId">@w.WedderOne & @w.WedderTwo</a></td>
+                        <td class="OriTD">@w.Date.ToString("MM-dd-yyyy")</td>
+                        <td class="OriTD">@w.Address</td>
+                        <td class="OriTD">@w.Rsvps.Count</td>
+                        <td class="OriTD"><a asp-action="ViewWedding" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId">RSVP</a>
+
+                            <form asp-action="DeleteWedding" asp-route-deleteId="@w.WeddingId" asp-controller="Wedding" method="Post">
+                                <button class="Idxbutton">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

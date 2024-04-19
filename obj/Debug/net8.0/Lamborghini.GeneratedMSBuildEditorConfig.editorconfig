@@ -34,6 +34,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9fUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/AllWeddings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9BbGxXZWRkaW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/EditWedding.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9FZGl0V2VkZGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/NewWedding.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9OZXdXZWRkaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/ViewWedding.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9WaWV3V2VkZGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/_AddingRsvp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9fQWRkaW5nUnN2cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/latchy/Wedding_Planner/Lamborghini/Views/Wedding/_ShowWeddings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2VkZGluZy9fU2hvd1dlZGRpbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/latchy/Wedding_Planner/Lamborghini/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

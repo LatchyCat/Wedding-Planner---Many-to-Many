@@ -1,5 +1,4 @@
-/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+
 
 a.navbar-brand[b-zc7ndd39rf] {
   white-space: normal;
@@ -32,11 +31,6 @@ a[b-zc7ndd39rf] {
 
 .box-shadow[b-zc7ndd39rf] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy[b-zc7ndd39rf] {
-  font-size: 1rem;
-  line-height: inherit;
 }
 
 .footer[b-zc7ndd39rf] {

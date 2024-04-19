@@ -1,0 +1,139 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 45%;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #0e1012;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    font-size: 1.1rem;
+    color: #505050;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-left: 4px solid #00ccff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus {
+    outline: none;
+    border-color: #6ef490;
+    font-size: 1.1rem;
+    color: #505050;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-left: 4px solid #00ffaa;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #e3b4eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+  }
+
+  .text-danger {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 1.2rem;
+  }
+
+  .text-danger::before {
+    content: "⚠ ";
+    font-size: 1.5rem;
+    margin-right: 5px;
+  }
+
+  .Idxbutton {
+  background-color: #299bd9;
+  color: white;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  }
+
+  .Idxbutton:hover {
+  background-color: #00b389;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
+  }
+
+  .Idxbutton:active {
+  background-color: #004080;
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .IdxTitle {
+  text-align: center;
+  color: #34c1c3;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 12px 10px 5px rgba(11, 16, 17, 0.2);
+  }
+
+  .IdxBox {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+  }
+
+  .IdxBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  form {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  }

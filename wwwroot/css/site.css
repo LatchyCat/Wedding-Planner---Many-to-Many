@@ -1,8 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
+  background-color: whitesmoke;
 }
 
 .container {
@@ -12,7 +10,7 @@ body {
 }
 
 form {
-  background-color: #fff;
+  background-color: whitesmoke;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -21,7 +19,6 @@ form {
 
 .form-group {
   margin-bottom: 20px;
-
 }
 
 label {
@@ -37,12 +34,12 @@ input[type="password"],
 input[type="email"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.6s;
   font-size: 1.1rem;
   color: #505050;
-  background-color: #f0f0f0;
+  background-color: whitesmoke;
   padding: 10px;
   border-left: 4px solid #00ccff;
   border-radius: 4px;
@@ -56,27 +53,27 @@ input[type="email"]:focus {
   border-color: #6ef490;
   font-size: 1.1rem;
   color: #505050;
-  background-color: #f0f0f0;
+  background-color: whitesmoke;
   padding: 10px;
   border-left: 4px solid #00ffaa;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: #e3b4eb;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  background-color: whitesmoke;
+  box-shadow: 0 4px 12px rgba(6, 95, 230, 0.767);
   transform: translateY(-3px);
 }
 
 .text-danger {
   color: #dc3545;
-  font-weight: bold;
+  font-weight: bolder;
   margin-top: 8px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .text-danger::before {
   content: "⚠ ";
-  font-size: 1.5rem;
-  margin-right: 5px; 
+  font-size: 1.3rem;
+  margin-right: 5px;
 }
 
 .Idxbutton {
@@ -126,7 +123,7 @@ transform: translateY(-5px);
 box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 .container {
     flex-direction: column;
     align-items: center;
@@ -136,4 +133,81 @@ form {
     width: 100%;
     margin-bottom: 20px;
 }
+}
+
+
+.dropDown {
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.pickMe {
+  font-size: 16px;
+  color: #333;
+}
+
+.pickMe:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+
+.landing-font-trow1 {
+  font-size: 1.4em;
+  color: #0cc176;
+}
+.landing-font-trow2 {
+  font-size: 1.4em;
+  color: #d4251c;
+}
+.landing-font-trow3 {
+  font-size: 1.4em;
+  color: #9716c6;
+}
+.landing-font-trow4 {
+  font-size: 1.4em;
+  color: #d31e1e;
+}
+
+
+.OriList {
+  font-family: Arial, sans-serif;
+}
+
+.OriListTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.OriTHead {
+  background-color: #f8f9fa;
+}
+
+.OriTRow:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.OriTH,
+.OriTD {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.OriTH {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.OriTRow:hover {
+  background-color: #e9ecef;
 }

@@ -6,5 +6,6 @@ using Microsoft.EntityFrameworkCore;
     {
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Wedding> Weddings { get; set; }
+        public DbSet<Rsvp> Rsvps { get; set; }
     }

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Lamborghini.bundle.scp.css"
     },
     {
+      "Id": "/Users/latchy/Wedding_Planner/Lamborghini/wwwroot/css/future.css",
+      "PackagePath": "staticwebassets/css/future.css"
+    },
+    {
       "Id": "/Users/latchy/Wedding_Planner/Lamborghini/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
