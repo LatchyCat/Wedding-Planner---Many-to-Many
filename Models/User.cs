@@ -31,8 +31,10 @@ public class User
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
+
         //? Navigation props
         public List<Rsvp> Rsvps { get; set; } = new();
+        public List<Wedding> WeddingsCreated {get; set;} = new();
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

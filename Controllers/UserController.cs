@@ -51,7 +51,6 @@ public class UserController : Controller
         List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
         Errors.ForEach(Console.WriteLine);
 
-
         if (!ModelState.IsValid)
         {
             return View("Index");

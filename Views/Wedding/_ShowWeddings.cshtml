@@ -31,11 +31,23 @@
                         <td class="OriTD">@w.Date.ToString("MM-dd-yyyy")</td>
                         <td class="OriTD">@w.Address</td>
                         <td class="OriTD">@w.Rsvps.Count</td>
-                        <td class="OriTD"><a asp-action="ViewWedding" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId">RSVP</a>
-
-                            <form asp-action="DeleteWedding" asp-route-deleteId="@w.WeddingId" asp-controller="Wedding" method="Post">
-                                <button class="Idxbutton">Delete</button>
-                            </form>
+                        <td class="OriTD">
+                            @if (w.UserId == Context.Session.GetInt32("UserId"))
+                            {
+                                 <form asp-action="DeleteWedding" asp-route-deleteId="@w.WeddingId" asp-controller="Wedding" method="Post">
+                                    <button class="Idxbutton">Delete</button>
+                                </form>
+                            } else if (!w.Rsvps.Any(r => r.UserId == Context.Session.GetInt32("UserId")))
+                            {
+                                <form asp-action="ToggleRsvp" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId" method="post">
+                                    <button class="IdxButton">RSVP</button>
+                                </form>
+                            } else
+                            {
+                                <form asp-action="ToggleRsvp" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId" method="post">
+                                    <button class="IdxButton">UnRSVP</button>
+                                </form>
+                            }
                         </td>
                     </tr>
                 }

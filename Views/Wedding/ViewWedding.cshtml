@@ -5,29 +5,13 @@
         <p>@Model.Address</p>
     </div>
 
-  @* <div class="shadow p-3 mb-3 text-center">
-        <h1>@Model.WedderOne & @Model.WedderTwo Wedding</h1>
-  </div>
 
-  <div class="rightSide">
-        @foreach (Rsvp r in Model.Rsvps)
-        {
+    <div class="rightSide">
             <h1 class="box1">Guest List</h1>
-            <p class="box2">@r.Guest?.FirstName @r.Guest?.FirstName</p>
-        }
-    </div>
-
-        @await Html.PartialAsync("_AddUserAsRsvp", new Rsvp() ,new ViewDataDictionary(this.ViewData){{"WeddingId", Model.WeddingId}})
-</div> *@
-
-
- <div class="rightSide">
-        <h1 class="box1">Guest List</h1>
-        @foreach (Rsvp r in Model.Rsvps)
-        {
-            <p class="box2">@r.Guest?.FirstName @r.Guest?.LastName</p>
-        }
+            @foreach (Rsvp r in Model.Rsvps)
+            {
+                <p class="box2">@r.Guest?.FirstName @r.Guest?.LastName</p>
+            }
     </div>
 
 
-@await Html.PartialAsync("_AddingRsvp", new Rsvp() ,new ViewDataDictionary(this.ViewData){{"WeddingId", Model.WeddingId}})

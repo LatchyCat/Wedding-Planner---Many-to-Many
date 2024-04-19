@@ -51,12 +51,19 @@ namespace Lamborghini.Migrations
                     Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Address = table.Column<string>(type: "varchar(244)", maxLength: 244, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Weddings", x => x.WeddingId);
+                    table.ForeignKey(
+                        name: "FK_Weddings_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -98,6 +105,11 @@ namespace Lamborghini.Migrations
                 name: "IX_Rsvps_WeddingId",
                 table: "Rsvps",
                 column: "WeddingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Weddings_UserId",
+                table: "Weddings",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -107,10 +119,10 @@ namespace Lamborghini.Migrations
                 name: "Rsvps");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Weddings");
 
             migrationBuilder.DropTable(
-                name: "Weddings");
+                name: "Users");
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lamborghini.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20240418221855_FirstMigration")]
+    [Migration("20240419180629_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -111,6 +111,9 @@ namespace Lamborghini.Migrations
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("WedderOne")
                         .IsRequired()
                         .HasMaxLength(244)
@@ -122,6 +125,8 @@ namespace Lamborghini.Migrations
                         .HasColumnType("varchar(244)");
 
                     b.HasKey("WeddingId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Weddings");
                 });
@@ -145,9 +150,22 @@ namespace Lamborghini.Migrations
                     b.Navigation("Wedding");
                 });
 
+            modelBuilder.Entity("Lamborghini.Models.Wedding", b =>
+                {
+                    b.HasOne("Lamborghini.Models.User", "UserWhoCreatedTheWedding")
+                        .WithMany("WeddingsCreated")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserWhoCreatedTheWedding");
+                });
+
             modelBuilder.Entity("Lamborghini.Models.User", b =>
                 {
                     b.Navigation("Rsvps");
+
+                    b.Navigation("WeddingsCreated");
                 });
 
             modelBuilder.Entity("Lamborghini.Models.Wedding", b =>

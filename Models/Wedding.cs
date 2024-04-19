@@ -34,8 +34,12 @@ public class Wedding
     [Display(Name = "Castle of the Noble Hearts")]
     public string Address { get; set; }
 
+    //! FK
+    public int UserId {get; set;}
+
      //? Navigation props
     public List<Rsvp> Rsvps { get; set; } = new();
+    public User? UserWhoCreatedTheWedding {get; set;}
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime UpdateAt { get; set; } = DateTime.Now;

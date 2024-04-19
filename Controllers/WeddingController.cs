@@ -17,20 +17,28 @@ public class WeddingController : Controller
     }
 
 
+    private User? LoggedInUser {get => _context.Users.FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));}
+
+
     [HttpGet("weddings")]
     public ViewResult AllWeddings()
     {
-
-
         List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
         Errors.ForEach(Console.WriteLine);
 
-        List<Wedding> Weddings = _context.Weddings.OrderByDescending(p => p.CreatedAt).Take(100).ToList();
+        ViewBag.LoggedInUser = LoggedInUser;
+
+        List<Wedding> Weddings = _context.Weddings.Include(w => w.Rsvps).OrderByDescending(p => p.CreatedAt).Take(100).ToList();
         return View(Weddings);
     }
 
+
     [HttpGet("weddings/new")]
-    public ViewResult NewWedding() => View();
+    public ViewResult NewWedding()
+        {
+            ViewBag.LoggedInUser = LoggedInUser;
+            return View();
+        }
 
     [HttpPost("weddings/create")]
     public IActionResult CreateWedding(Wedding newWedding)
@@ -40,8 +48,10 @@ public class WeddingController : Controller
 
         if (!ModelState.IsValid)
         {
+            ViewBag.LoggedInUser = LoggedInUser;
             return View("newWedding");
         }
+        newWedding.UserId = LoggedInUser!.UserId;
         _context.Add(newWedding);
         _context.SaveChanges();
         return RedirectToAction("AllWeddings");
@@ -54,36 +64,40 @@ public class WeddingController : Controller
         List<string> Errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
         Errors.ForEach(Console.WriteLine);
 
-           Wedding? Wedding = _context.Weddings.Include(w => w.Rsvps).FirstOrDefault(w => w.WeddingId == weddingId);
-
-            ViewBag.NotRsvpYet = _context.Users.Include(u => u.Rsvps)
-                                                        .ThenInclude(r => r.Wedding)
-                                                        .Where(r => !r.Rsvps
-                                                        .Any(u => u.WeddingId == weddingId));
-
-        Wedding? wedding = _context.Weddings.FirstOrDefault(p => p.WeddingId == weddingId);
+        Wedding? wedding = _context.Weddings.Include(w => w.Rsvps)
+                                                            .ThenInclude(r => r.Guest)
+                                                            .FirstOrDefault(p => p.WeddingId == weddingId);
         if (wedding == null)
         {
             return RedirectToAction("AllWeddings");
         }
+
+        ViewBag.LoggedInUser = LoggedInUser;
         return View(wedding);
     }
 
 
-    [HttpPost("wedding/{weddingId}/rsvp")]
-    public IActionResult AddingRsvp(Rsvp newRsvp)
+    [HttpPost("wedding/{weddingId}/rsvp/toggle")]
+    public RedirectToActionResult ToggleRsvp(int weddingId)
     {
-        int? userId = HttpContext.Session.GetInt32("UserId");
-         if (userId == null)
-    {
-        return RedirectToAction("Login");
-    }
-
-
-        _context.Add(newRsvp);
-        _context.SaveChanges();
+        Wedding? wedding = _context.Weddings.SingleOrDefault(w => w.WeddingId == weddingId);
+        if (wedding != null)
+        {
+            Rsvp? removeRsvp = _context.Rsvps.SingleOrDefault(r => r.WeddingId == weddingId && r.UserId == HttpContext.Session.GetInt32("UserId"));
+            if (removeRsvp != null)
+            {
+                _context.Remove(removeRsvp);
+                _context.SaveChanges();
+            } else
+            {
+                 Rsvp newRsvp = new Rsvp(){WeddingId = weddingId, UserId = LoggedInUser!.UserId};
+                _context.Add(newRsvp);
+                _context.SaveChanges();
+            }
+        }
         return RedirectToAction("AllWeddings");
     }
+
 
     [SessionCheck]
     [HttpGet("weddings/{weddingId}/edit")]
@@ -97,6 +111,8 @@ public class WeddingController : Controller
         {
             return RedirectToAction("AllWeddings");
         }
+
+        ViewBag.LoggedInUser = LoggedInUser;
         return View(toBeEdited);
     }
 
@@ -113,6 +129,7 @@ public class WeddingController : Controller
             {
                 ModelState.AddModelError("WedderOne", "Wedding not found in DB");
             }
+             ViewBag.LoggedInUser = LoggedInUser;
              return View("EditedWedding", OldWedding);
         }
         OldWedding.WedderOne = editedWedding.WedderOne;
