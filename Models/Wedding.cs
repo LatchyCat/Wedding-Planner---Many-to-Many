@@ -37,7 +37,7 @@ public class Wedding
     //! FK
     public int UserId {get; set;}
 
-     //? Navigation props
+    //? Navigation props
     public List<Rsvp> Rsvps { get; set; } = new();
     public User? UserWhoCreatedTheWedding {get; set;}
 

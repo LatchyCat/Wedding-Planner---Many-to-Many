@@ -33,12 +33,15 @@ public class WeddingController : Controller
     }
 
 
+
     [HttpGet("weddings/new")]
     public ViewResult NewWedding()
         {
             ViewBag.LoggedInUser = LoggedInUser;
             return View();
         }
+
+
 
     [HttpPost("weddings/create")]
     public IActionResult CreateWedding(Wedding newWedding)
@@ -116,6 +119,7 @@ public class WeddingController : Controller
         return View(toBeEdited);
     }
 
+
     [HttpPost("weddings/{postId}/update")]
     public IActionResult UpdateWedding(int weddingId, Wedding editedWedding)
     {
@@ -141,6 +145,7 @@ public class WeddingController : Controller
         return RedirectToAction("ViewWedding", new {weddingId = weddingId});
     }
 
+
     [HttpPost("weddings/{deleteId}/delete")]
     public RedirectToActionResult DeleteWedding(int deleteId)
     {
@@ -155,9 +160,4 @@ public class WeddingController : Controller
         }
          return RedirectToAction("AllWeddings");
     }
-
-
-
-
-
 }
