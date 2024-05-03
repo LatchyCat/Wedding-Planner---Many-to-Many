@@ -123,6 +123,29 @@ transform: translateY(-5px);
 box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
+/*? For the title screen - Edit TopNav for Landing page view */
+.CustomTopNavBtn {
+  background-color: #299bd9;
+  color: white;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  justify-content: space-around;
+}
+
+.CustomTopNavBtn:hover {
+  background-color: #00b389;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
+  }
+
+
+
 @media (max-width: 900px) {
 .container {
     flex-direction: column;

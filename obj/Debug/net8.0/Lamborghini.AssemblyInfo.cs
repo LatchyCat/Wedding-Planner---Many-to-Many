@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lamborghini")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29a1083e9be337c85e8ed611c3459596e7f11afc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e11bb2291c3646cf96bf8f51272579d8ddfa1d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lamborghini")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lamborghini")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

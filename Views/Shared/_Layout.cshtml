@@ -10,22 +10,22 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3 justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white box-shadow mb-3 justify-content-space-around">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav">
                         <li>
                             <h3>Hello @ViewBag.LoggedInUser.FirstName @ViewBag.LoggedInUser.LastName</h3>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Wedding" asp-action="AllWeddings">Home</a>
+                            <a class="CustomTopNavBtn" asp-controller="Wedding" asp-action="AllWeddings">Home</a>
                         </li>
                           <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Wedding" asp-action="NewWedding">Plan a Wedding</a>
+                            <a class="CustomTopNavBtn" asp-controller="Wedding" asp-action="NewWedding">Plan a Wedding</a>
                         </li>
                          <li class="nav-item">
                             <form asp-action="Logout" asp-controller="User" method="Post">
-                                <button class="Idxbutton text-danger">Logout</button>
+                                <button class="Idxbutton">Logout</button>
                             </form>
                         </li>
                     </ul>

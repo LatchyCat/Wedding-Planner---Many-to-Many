@@ -1,22 +1,5 @@
 ﻿
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-a {
-  color: #0077cc;
-}
-
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -41,4 +24,4 @@ a {
   line-height: 60px;
 }
 
-/* Adding something here for github big yurrr */
+ul
